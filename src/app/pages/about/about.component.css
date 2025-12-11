@@ -1,0 +1,154 @@
+:host {
+    --eco-green: #00E676;
+    --clean-teal: #29B6F6;
+    --sun-yellow: #FFC107;
+    --forest-green: #1B5E20;
+    --text-main: #1a1a1a;
+    --card-bg: #ffffff;
+}
+
+.about-wrapper {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 0 80px;
+    background: linear-gradient(180deg, #f0f9ff 0%, #e8f5e9 100%);
+    font-family: 'Outfit', sans-serif;
+}
+
+.about-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--forest-green);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: var(--eco-green);
+    border-radius: 10px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+/* Cards */
+.info-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--eco-green);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: #f8fafc;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+    color: var(--clean-teal);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.info-card:hover .icon-wrapper {
+    background: var(--eco-green);
+    color: white;
+}
+
+.text-content h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--forest-green);
+    margin-bottom: 0.8rem;
+}
+
+.text-content p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #4a5568;
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: var(--clean-teal);
+    font-weight: 600;
+}
+
+/* Specific Card Styles */
+.intro-card {
+    border-left: 5px solid var(--clean-teal);
+}
+
+.objective-card {
+    border-left: 5px solid var(--eco-green);
+}
+
+.objective-card .icon-wrapper {
+    color: var(--eco-green);
+}
+
+.origin-card {
+    border-left: 5px solid var(--sun-yellow);
+}
+
+.origin-card .icon-wrapper {
+    color: var(--sun-yellow);
+}
+
+/* Survey Badge */
+.survey-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e0f7fa;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    color: #006064;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .info-card {
+        padding: 1.5rem;
+    }
+}

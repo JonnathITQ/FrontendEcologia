@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div class="independent-foro-container" *ngIf="obra">
+    <div class="artwork-content">
+        <div class="image-section">
+            <img *ngIf="obra.imagen" [src]="getImagenUrl(obra.imagen)" [alt]="obra.nombreObra" class="artwork-image">
+            <div *ngIf="!obra.imagen" class="no-image-placeholder">
+                <i class="fas fa-image"></i>
+            </div>
+            <button class="btn-back" (click)="goBack()">
+                <i class="fas fa-arrow-left"></i> Volver al Foro
+            </button>
+        </div>
+
+        <div class="details-section">
+            <div class="artwork-header">
+                <h1 class="artwork-title">{{ obra.nombreObra }}</h1>
+                <p class="artwork-artist">por <span>{{ obra.usuario_id?.nombre || 'Anónimo' }}</span></p>
+            </div>
+
+            <div class="artwork-info">
+                <p class="description">{{ obra.descripcion }}</p>
+            </div>
+
+            <div class="comments-section">
+                <h3>Comentarios</h3>
+                <div class="comments-list">
+                    <div class="comment-item" *ngFor="let comentario of comentarios">
+                        <div class="comment-avatar">
+                            <span class="avatar-initial">{{ comentario.usuario_id?.nombre?.charAt(0) || 'U' }}</span>
+                        </div>
+                        <div class="comment-content">
+                            <span class="comment-author">{{ comentario.usuario_id?.nombre || 'Usuario' }}</span>
+                            <p class="comment-text">{{ comentario.mensaje }}</p>
+                        </div>
+                    </div>
+                    <div class="no-comments" *ngIf="comentarios.length === 0">
+                        Sé el primero en comentar.
+                    </div>
+                </div>
+
+                <div class="comment-input-area">
+                    <input type="text" [(ngModel)]="nuevoComentario" placeholder="Añade un comentario..."
+                        (keyup.enter)="enviarComentario()">
+                    <button class="btn-post" [disabled]="!nuevoComentario.trim()"
+                        (click)="enviarComentario()">Publicar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Unauthenticated Users -->
+<div class="modal-backdrop" *ngIf="showModal" (click)="cerrarModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+            <i class="fas fa-lock modal-icon"></i>
+            <h2>Acceso Requerido</h2>
+        </div>
+        <div class="modal-body">
+            <p>Necesitas iniciar sesión para poder comentar en esta publicación.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" (click)="cerrarModal()">Cancelar</button>
+            <button class="btn-login" (click)="irALogin()">Iniciar Sesión</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

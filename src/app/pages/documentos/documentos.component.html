@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="header">
+        <h1>Documentos y Recursos</h1>
+        <p>Explora nuestra colección de documentos informativos sobre reciclaje, sostenibilidad y el impacto del arte en
+            el medio ambiente.</p>
+    </div>
+
+    <div class="documents-grid">
+        <div class="document-card" *ngFor="let doc of documentos">
+            <div class="card-icon">
+                <i class="bi bi-file-earmark-text"></i>
+            </div>
+            <div class="card-content">
+                <h3>{{ doc.titulo }}</h3>
+                <p>{{ doc.descripcion }}</p>
+                <a *ngIf="doc.linkArticulo" [href]="doc.linkArticulo" target="_blank" class="btn-download">
+                    <i class="bi bi-box-arrow-up-right"></i> Leer Artículo
+                </a>
+            </div>
+        </div>
+        <div *ngIf="documentos.length === 0" class="no-items">
+            <i class="bi bi-folder2-open"
+                style="font-size: 3rem; color: #ccc; display: block; margin-bottom: 1rem;"></i>
+            <p>No hay documentos disponibles en este momento.</p>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,42 @@
+<div class="sidebar" [class.closed]="!isOpen">
+    <button class="toggle-btn" (click)="toggleSidebar()">
+        <i class="bi" [class.bi-chevron-left]="isOpen" [class.bi-chevron-right]="!isOpen"></i>
+    </button>
+
+    <div class="sidebar-header">
+        <div class="logo-icon">
+            <i class="bi bi-recycle"></i>
+        </div>
+        <h3 *ngIf="isOpen">Arte Recicla</h3>
+    </div>
+
+    <div class="user-info" *ngIf="identity">
+        <div class="avatar-placeholder">
+            <img *ngIf="identity.imagen" [src]="url + '/getImagenUsuario/' + identity.imagen" alt="Avatar"
+                class="avatar-img">
+            <span *ngIf="!identity.imagen">{{ identity.nombre.charAt(0) }}</span>
+        </div>
+        <div class="user-details" *ngIf="isOpen">
+            <span class="user-name">{{ identity.nombre }}</span>
+            <span class="user-role">Usuario</span>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a routerLink="/usuario" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+            <i class="bi bi-grid-1x2"></i>
+            <span *ngIf="isOpen">Inicio</span>
+        </a>
+        <a routerLink="/usuario/perfil" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-person-gear"></i>
+            <span *ngIf="isOpen">Mi Perfil</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <button (click)="logout()" class="btn-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span *ngIf="isOpen">Cerrar Sesión</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="consejos-container">
+    <div class="header">
+        <h1>Consejos Eco-Amigables</h1>
+        <p>Pequeñas acciones para un gran cambio. Descubre cómo puedes contribuir al cuidado del planeta.</p>
+        <div class="header-decoration">
+            <i class="fas fa-leaf"></i>
+        </div>
+    </div>
+
+    <div class="tips-grid">
+        <div class="tip-card" *ngFor="let consejo of consejos; let i = index">
+            <div class="tip-number">#{{ i + 1 }}</div>
+            <div class="tip-content">
+                <h3>{{ consejo.nombreConsejo }}</h3>
+                <p>{{ consejo.mensaje }}</p>
+            </div>
+            <div class="tip-icon">
+                <i class="fas fa-seedling"></i>
+            </div>
+        </div>
+
+        <div *ngIf="consejos.length === 0" class="no-items">
+            <i class="fas fa-wind" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+            <p>Aún no hay consejos publicados. ¡Vuelve pronto!</p>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,212 @@
+:host {
+    --eco-green: #00E676;
+    --clean-teal: #29B6F6;
+    --sun-yellow: #FFC107;
+    --forest-green: #1B5E20;
+    --white: #FFFFFF;
+}
+
+.footer {
+    position: relative;
+    background: transparent;
+    margin-top: auto;
+    font-family: 'Outfit', sans-serif;
+}
+
+.footer-content {
+    background-color: var(--forest-green);
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+}
+
+/* Waves Animation */
+.wave-container {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-bottom: -7px;
+    /* Fix for gaps */
+    min-height: 100px;
+    max-height: 150px;
+    overflow: hidden;
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/* Brand Styles */
+.footer-brand {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.logo-icon-footer {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--eco-green);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.footer-brand:hover .logo-icon-footer {
+    transform: rotate(15deg) scale(1.1);
+    color: var(--clean-teal);
+}
+
+.brand-text-footer {
+    font-weight: 800;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, var(--white), var(--eco-green));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slogan-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.nav-link-footer {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link-footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--eco-green);
+    transition: width 0.3s ease;
+}
+
+.nav-link-footer:hover {
+    color: var(--white);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-link-footer:hover::before {
+    width: 100%;
+}
+
+/* Social Buttons */
+.social-btn {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--sun-yellow);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+}
+
+.social-btn i {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover {
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
+}
+
+.social-btn:hover .social-blob {
+    transform: scale(1);
+}
+
+.social-btn:hover i {
+    transform: scale(1.2);
+    color: var(--forest-green);
+}
+
+.social-btn.github .social-blob {
+    background: var(--clean-teal);
+}
+
+.social-btn.github:hover {
+    box-shadow: 0 0 20px rgba(41, 182, 246, 0.4);
+}
+
+/* Border */
+.border-light-subtle {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}

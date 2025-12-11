@@ -1,0 +1,79 @@
+<div class="moderator-layout">
+    <app-sidebar-moderador></app-sidebar-moderador>
+
+    <div class="main-content">
+        <div class="content-container">
+            <div class="header-actions">
+                <h2>Gestión de Tutoriales</h2>
+                <button class="btn-add" (click)="openModal()">
+                    <i class="bi bi-plus-lg"></i> Nuevo Tutorial
+                </button>
+            </div>
+
+            <div *ngIf="message_success" class="alert alert-success">
+                {{ message_success }}
+            </div>
+
+            <div class="tutorials-grid">
+                <div class="tutorial-item" *ngFor="let item of tutoriales">
+                    <div class="video-wrapper">
+                        <video *ngIf="item.video" [src]="url + 'verVideoTutorial/' + item.video" controls></video>
+                        <div *ngIf="!item.video" class="no-video">
+                            <i class="bi bi-camera-video"></i>
+                        </div>
+                    </div>
+                    <div class="item-details">
+                        <h3>{{ item.titulo }}</h3>
+                        <p>{{ item.descripcion }}</p>
+                        <div class="item-actions">
+                            <button class="btn-icon edit" (click)="openModal(item)">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn-icon delete" (click)="deleteTutorial(item._id)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="tutoriales.length === 0" class="no-items">
+                    No hay tutoriales registrados
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" *ngIf="showModal">
+    <div class="custom-modal">
+        <div class="modal-header">
+            <h3>{{ isEditing ? 'Editar Tutorial' : 'Nuevo Tutorial' }}</h3>
+            <button class="btn-close" (click)="closeModal()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="message_error" class="alert alert-danger">
+                {{ message_error }}
+            </div>
+
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" [(ngModel)]="tutorial.titulo" class="form-control" placeholder="Título del tutorial">
+            </div>
+
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea [(ngModel)]="tutorial.descripcion" class="form-control" rows="3"
+                    placeholder="Descripción..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Video</label>
+                <input type="file" (change)="fileChangeEvent($event)" class="form-control" accept="video/*">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" (click)="closeModal()">Cancelar</button>
+            <button class="btn-save" (click)="saveTutorial()">Guardar</button>
+        </div>
+    </div>
+</div>

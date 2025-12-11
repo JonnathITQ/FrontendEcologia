@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="foro-container">
+    <div class="header">
+        <h1>Comunidad Creativa</h1>
+        <p>Comparte tus creaciones hechas con materiales reciclados e inspira a otros.</p>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <div class="upload-card">
+            <h2><i class="fas fa-cloud-upload-alt"></i> Comparte tu Obra</h2>
+            <form #foroForm="ngForm" (ngSubmit)="onSubmit(foroForm)">
+                <div class="form-group">
+                    <label for="nombreObra">Título de la Obra</label>
+                    <input type="text" id="nombreObra" name="nombreObra" #nombreObra="ngModel"
+                        [(ngModel)]="nuevaObra.nombreObra" required placeholder="Ej: Lámpara de Botellas">
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" #descripcion="ngModel"
+                        [(ngModel)]="nuevaObra.descripcion" required rows="3"
+                        placeholder="Cuéntanos sobre los materiales y el proceso..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="imagen">Fotografía</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="imagen" (change)="handleFileInput($event)" accept="image/*">
+                        <div class="file-custom-label">
+                            <i class="fas fa-image"></i>
+                            <span>{{ fileToUpload ? fileToUpload.name : 'Seleccionar imagen...' }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit" [disabled]="!foroForm.form.valid">
+                    Publicar Obra
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+        <div class="artwork-card" *ngFor="let item of foro" [routerLink]="['/foro', item._id]">
+            <div class="card-image">
+                <img *ngIf="item.imagen" [src]="getImagenUrl(item.imagen)" [alt]="item.nombreObra">
+                <div *ngIf="!item.imagen" class="no-image">
+                    <i class="fas fa-image"></i>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>{{ item.nombreObra }}</h3>
+                <p class="author">por <span>{{ item.usuario_id?.nombre || 'Anónimo' }}</span></p>
+                <p class="description">{{ item.descripcion }}</p>
+            </div>
+        </div>
+
+        <div *ngIf="foro.length === 0" class="no-items">
+            <i class="fas fa-paint-brush"></i>
+            <p>Aún no hay obras publicadas. ¡Sé el primero!</p>
+        </div>
+    </div>
+</div>
+
+<!-- Auth Modal -->
+<div class="modal-backdrop" *ngIf="showModal" (click)="cerrarModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+            <i class="fas fa-lock modal-icon"></i>
+            <h2>Acceso Requerido</h2>
+        </div>
+        <div class="modal-body">
+            <p>Necesitas iniciar sesión para compartir tus obras con la comunidad.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" (click)="cerrarModal()">Cancelar</button>
+            <button class="btn-login" (click)="irALogin()">Iniciar Sesión</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

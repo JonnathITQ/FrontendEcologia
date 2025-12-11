@@ -1,0 +1,62 @@
+<div class="selection-container">
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="content-wrapper">
+        <h1 class="main-title">Bienvenido a Arte que Recicla</h1>
+        <p class="subtitle">Selecciona tu rol para continuar</p>
+
+        <div class="cards-container">
+            <!-- Usuario Card -->
+            <div class="role-card" routerLink="/sesiones/loginUsuario">
+                <div class="card-content">
+                    <div class="icon-wrapper user-icon">
+                        <i class="bi bi-person-heart"></i>
+                    </div>
+                    <h2>Usuario</h2>
+                    <p>Explora tutoriales, comparte tus creaciones y aprende consejos de reciclaje.</p>
+                    <div class="card-action">
+                        <span>Ingresar</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="card-blob"></div>
+            </div>
+
+            <!-- Moderador Card -->
+            <div class="role-card" routerLink="/sesiones/loginModerador">
+                <div class="card-content">
+                    <div class="icon-wrapper mod-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h2>Moderador</h2>
+                    <p>Gestiona el contenido de la comunidad y asegura un ambiente seguro.</p>
+                    <div class="card-action">
+                        <span>Ingresar</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="card-blob"></div>
+            </div>
+
+            <!-- Administrador Card -->
+            <div class="role-card" routerLink="/sesiones/loginAdministrador">
+                <div class="card-content">
+                    <div class="icon-wrapper admin-icon">
+                        <i class="bi bi-gear-wide-connected"></i>
+                    </div>
+                    <h2>Administrador</h2>
+                    <p>Control total de la plataforma, usuarios y configuraciones del sistema.</p>
+                    <div class="card-action">
+                        <span>Ingresar</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="card-blob"></div>
+            </div>
+        </div>
+    </div>
+</div>

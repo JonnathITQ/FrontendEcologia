@@ -1,0 +1,74 @@
+<div class="moderator-layout">
+    <app-sidebar-moderador></app-sidebar-moderador>
+
+    <div class="main-content">
+        <div class="content-container">
+            <div class="header-actions">
+                <h2>Gestión de Usuarios</h2>
+            </div>
+
+            <div *ngIf="message_success" class="alert alert-success">
+                {{ message_success }}
+            </div>
+            <div *ngIf="message_error" class="alert alert-danger">
+                {{ message_error }}
+            </div>
+
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Avatar</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of usuarios">
+                            <td>
+                                <div class="avatar-cell">
+                                    <img *ngIf="user.imagen" [src]="url + 'getImagenUsuario/' + user.imagen"
+                                        alt="Avatar">
+                                    <span *ngIf="!user.imagen" class="avatar-placeholder-cell">{{ user.nombre |
+                                        slice:0:1
+                                        }}</span>
+                                </div>
+                            </td>
+                            <td>{{ user.nombre }}</td>
+                            <td>{{ user.apellido }}</td>
+                            <td>{{ user.correo }}</td>
+                            <td class="actions-cell">
+                                <button class="btn-icon delete" (click)="openDeleteModal(user._id)"
+                                    title="Eliminar Usuario">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="usuarios.length === 0">
+                            <td colspan="5" class="text-center">No hay usuarios registrados</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-overlay" *ngIf="showDeleteModal">
+    <div class="custom-modal">
+        <div class="modal-header">
+            <h3>Confirmar Eliminación</h3>
+            <button class="btn-close" (click)="closeDeleteModal()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+            <p>¿Estás seguro de que deseas eliminar este usuario? Esta acción no se puede deshacer.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" (click)="closeDeleteModal()">Cancelar</button>
+            <button class="btn-confirm-delete" (click)="confirmDelete()">Eliminar</button>
+        </div>
+    </div>
+</div>

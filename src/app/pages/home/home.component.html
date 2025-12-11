@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+
+<div class="home-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="animate-fade-up">Arte que Transforma el Mundo</h1>
+            <p class="animate-fade-up delay-1">Descubre cómo el reciclaje se convierte en obras maestras. Únete a
+                nuestra comunidad de artistas conscientes.</p>
+            <div class="hero-buttons animate-fade-up delay-2">
+                <a routerLink="/galeria" class="btn-primary">Explorar Galería</a>
+                <a routerLink="/tutoriales" class="btn-secondary">Aprender Más</a>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2>Explora Nuestro Universo</h2>
+            <p>Todo lo que necesitas para inspirarte y crear.</p>
+        </div>
+
+        <div class="features-grid">
+            <a routerLink="/galeria" class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Galería de Arte</h3>
+                <p>Admira creaciones únicas hechas con materiales reciclados.</p>
+                <span class="link-text">Ver Obras <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a routerLink="/tutoriales" class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Tutoriales</h3>
+                <p>Aprende paso a paso cómo crear tu propio arte sustentable.</p>
+                <span class="link-text">Empezar a Crear <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a routerLink="/foro" class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Comunidad</h3>
+                <p>Comparte tus obras, recibe feedback y conecta con otros artistas.</p>
+                <span class="link-text">Unirse al Foro <i class="fas fa-arrow-right"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Nuestra Misión</h2>
+                <p>En ArteRecicla, creemos que la basura de unos es el tesoro de otros. Nuestra plataforma busca
+                    inspirar a las personas a ver el potencial artístico en los objetos cotidianos, promoviendo la
+                    creatividad y la conciencia ambiental.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">+500</span>
+                        <span class="stat-label">Obras</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+1k</span>
+                        <span class="stat-label">Artistas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Inspiración</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-recycle floating-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para compartir tu arte?</h2>
+            <p>Sube tus creaciones y sé parte del cambio hoy mismo.</p>
+            <a routerLink="/foro" class="btn-cta">Publicar Ahora</a>
+        </div>
+    </section>
+</div>
+
+<app-footer></app-footer>

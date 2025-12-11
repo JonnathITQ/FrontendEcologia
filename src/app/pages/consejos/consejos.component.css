@@ -1,0 +1,178 @@
+:host {
+    --eco-green: #00E676;
+    --forest-green: #1B5E20;
+    --light-green: #e8f5e9;
+    --text-main: #1a1a1a;
+    --bg-color: #f8f9fa;
+}
+
+.consejos-container {
+    padding: 120px 2rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 80vh;
+    background-image: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--forest-green);
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.header p {
+    color: #666;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.header-decoration {
+    margin-top: 1.5rem;
+    color: var(--eco-green);
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.tip-card {
+    background: white;
+    border-radius: 20px 20px 20px 0;
+    /* Leaf-like shape */
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.tip-card:hover {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 20px 40px rgba(27, 94, 32, 0.15);
+}
+
+.tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--eco-green), var(--forest-green));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.tip-card:hover::before {
+    transform: scaleX(1);
+}
+
+.tip-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(0, 230, 118, 0.1);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transition: color 0.3s ease;
+}
+
+.tip-card:hover .tip-number {
+    color: rgba(0, 230, 118, 0.2);
+}
+
+.tip-content {
+    position: relative;
+    z-index: 1;
+}
+
+.tip-content h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    color: var(--forest-green);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.tip-content p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.tip-icon {
+    margin-top: auto;
+    align-self: flex-end;
+    color: var(--eco-green);
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.tip-card:hover .tip-icon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternating Colors for visual interest */
+.tip-card:nth-child(even) {
+    background: #f1f8e9;
+}
+
+.tip-card:nth-child(3n) {
+    border-radius: 20px 20px 0 20px;
+}
+
+.no-items {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    color: #999;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 1rem 3rem;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}

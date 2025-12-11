@@ -1,0 +1,356 @@
+:host {
+    --eco-green: #00E676;
+    --clean-teal: #29B6F6;
+    --sun-yellow: #FFC107;
+    --forest-green: #1B5E20;
+    --text-main: #1a1a1a;
+    --text-muted: #666;
+    --card-bg: #ffffff;
+    --bg-color: #f8f9fa;
+    --input-bg: #f1f3f5;
+    --danger: #ef5350;
+}
+
+.user-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-color);
+    font-family: 'Outfit', sans-serif;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 40px;
+    background: var(--bg-color);
+    color: var(--text-main);
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    color: var(--forest-green);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Profile Card */
+.profile-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.banner {
+    height: 150px;
+    background: linear-gradient(45deg, var(--forest-green), var(--clean-teal));
+}
+
+.profile-header-content {
+    padding: 16px 24px 0 140px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.avatar-wrapper {
+    position: absolute;
+    top: -60px;
+    left: 24px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+}
+
+.avatar.editable {
+    cursor: pointer;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar span {
+    font-size: 40px;
+    color: var(--forest-green);
+    font-weight: 600;
+}
+
+.avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.avatar.editable:hover .avatar-overlay {
+    opacity: 1;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--eco-green);
+    border: 4px solid var(--card-bg);
+    border-radius: 50%;
+}
+
+.user-info h3 {
+    color: var(--text-main);
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-tag {
+    color: var(--text-muted);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn-edit-profile {
+    background-color: var(--forest-green);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(27, 94, 32, 0.2);
+}
+
+.btn-edit-profile:hover {
+    background-color: #144518;
+    transform: translateY(-2px);
+}
+
+/* Info Card */
+.info-card {
+    background: var(--card-bg);
+    padding: 0 24px 24px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    color: var(--text-main);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.info-content {
+    flex: 1;
+}
+
+/* Edit Mode Inputs */
+.discord-input {
+    background-color: var(--input-bg);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: var(--text-main);
+    padding: 10px 12px;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Outfit', sans-serif;
+    margin-top: 8px;
+    transition: all 0.2s;
+}
+
+.discord-input:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: var(--clean-teal);
+    box-shadow: 0 0 0 3px rgba(41, 182, 246, 0.1);
+}
+
+.edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-cancel {
+    color: var(--danger);
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.btn-cancel:hover {
+    text-decoration: underline;
+}
+
+.btn-save {
+    background-color: var(--eco-green);
+    color: var(--forest-green);
+    border: none;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 230, 118, 0.3);
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.discord-modal {
+    background: white;
+    width: 440px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: scaleIn 0.2s ease-out;
+}
+
+.modal-header {
+    padding: 24px 24px 0;
+    text-align: center;
+}
+
+.modal-header h3 {
+    color: var(--forest-green);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.modal-body p {
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    background: #f8f9fa;
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--forest-green);
+    border: 1px solid rgba(0, 230, 118, 0.2);
+}
+
+.alert-danger {
+    background: rgba(239, 83, 80, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(239, 83, 80, 0.2);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

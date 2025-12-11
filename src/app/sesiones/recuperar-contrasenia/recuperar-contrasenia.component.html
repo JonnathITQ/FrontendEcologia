@@ -1,0 +1,49 @@
+<div class="recovery-container">
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <div class="recovery-card">
+        <div class="card-header">
+            <h2>Recuperar Contraseña</h2>
+            <p *ngIf="step === 1">Ingresa tu correo para buscar tu cuenta</p>
+            <p *ngIf="step === 2">Verificación de seguridad</p>
+            <p *ngIf="step === 3">Crea una nueva contraseña</p>
+        </div>
+
+        <!-- Step 1: Email -->
+        <div *ngIf="step === 1" class="step-content">
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" [(ngModel)]="email" class="form-control" placeholder="ejemplo@correo.com">
+            </div>
+            <div *ngIf="message_error" class="alert alert-danger">{{ message_error }}</div>
+            <button class="btn-action" (click)="verifyEmail()">Continuar</button>
+        </div>
+
+        <!-- Step 2: Captcha -->
+        <div *ngIf="step === 2" class="step-content">
+            <app-captcha (onSuccess)="onCaptchaSuccess()"></app-captcha>
+        </div>
+
+        <!-- Step 3: New Password -->
+        <div *ngIf="step === 3" class="step-content">
+            <div class="form-group">
+                <label>Nueva Contraseña</label>
+                <input type="password" [(ngModel)]="newPassword" class="form-control" placeholder="••••••••">
+            </div>
+            <div class="form-group">
+                <label>Confirmar Contraseña</label>
+                <input type="password" [(ngModel)]="confirmPassword" class="form-control" placeholder="••••••••">
+            </div>
+            <div *ngIf="message_error" class="alert alert-danger">{{ message_error }}</div>
+            <div *ngIf="message_success" class="alert alert-success">{{ message_success }}</div>
+            <button class="btn-action" (click)="updatePassword()">Actualizar Contraseña</button>
+        </div>
+
+        <div class="form-footer">
+            <a routerLink="/sesiones/loginUsuario">Volver al inicio de sesión</a>
+        </div>
+    </div>
+</div>

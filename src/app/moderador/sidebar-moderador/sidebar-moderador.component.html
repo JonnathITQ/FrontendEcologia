@@ -1,0 +1,58 @@
+<div class="sidebar" [class.closed]="!isOpen">
+    <button class="toggle-btn" (click)="toggleSidebar()">
+        <i class="bi" [class.bi-chevron-left]="isOpen" [class.bi-chevron-right]="!isOpen"></i>
+    </button>
+
+    <div class="sidebar-header">
+        <div class="logo-icon">
+            <i class="bi bi-shield-lock"></i>
+        </div>
+        <h3 *ngIf="isOpen">Panel Staff</h3>
+    </div>
+
+    <div class="user-info" *ngIf="identity">
+        <div class="avatar-placeholder">
+            <img *ngIf="identity.imagen" [src]="url + 'verImagenModerador/' + identity.imagen" alt="Avatar"
+                class="avatar-img">
+            <span *ngIf="!identity.imagen">{{ identity.nombre.charAt(0) }}</span>
+        </div>
+        <div class="user-details" *ngIf="isOpen">
+            <span class="user-name">{{ identity.nombre }}</span>
+            <span class="user-role">Moderador</span>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a routerLink="/moderador" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+            <i class="bi bi-speedometer2"></i>
+            <span *ngIf="isOpen">Inicio</span>
+        </a>
+        <a routerLink="/moderador/listaDocs" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-file-earmark-text"></i>
+            <span *ngIf="isOpen">Documentos</span>
+        </a>
+        <a routerLink="/moderador/listaGaleria" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-images"></i>
+            <span *ngIf="isOpen">Galería</span>
+        </a>
+        <a routerLink="/moderador/listaTutoriales" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-camera-video"></i>
+            <span *ngIf="isOpen">Tutoriales</span>
+        </a>
+        <a routerLink="/moderador/listaUsuarios" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-people"></i>
+            <span *ngIf="isOpen">Usuarios</span>
+        </a>
+        <a routerLink="/moderador/perfilModerador" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-person-gear"></i>
+            <span *ngIf="isOpen">Mi Perfil</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <button (click)="logout()" class="btn-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span *ngIf="isOpen">Cerrar Sesión</span>
+        </button>
+    </div>
+</div>

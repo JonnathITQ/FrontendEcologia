@@ -1,0 +1,21 @@
+<div class="captcha-box">
+    <div class="captcha-display">
+        <span *ngFor="let char of captchaText.split('')"
+            [style.transform]="'rotate(' + (Math.random() * 20 - 10) + 'deg)'">
+            {{ char }}
+        </span>
+    </div>
+
+    <div class="captcha-controls">
+        <button type="button" class="btn-refresh" (click)="generateCaptcha()" title="Recargar Captcha">
+            <i class="bi bi-arrow-clockwise"></i>
+        </button>
+        <input type="text" [(ngModel)]="userInput" placeholder="Ingresa el código" class="captcha-input">
+    </div>
+
+    <div *ngIf="isError" class="error-msg">Código incorrecto, intenta de nuevo.</div>
+
+    <button type="button" class="btn-verify" (click)="verifyCaptcha()" [disabled]="!userInput">
+        Verificar
+    </button>
+</div>

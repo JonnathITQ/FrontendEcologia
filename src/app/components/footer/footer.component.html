@@ -1,0 +1,77 @@
+<footer class="footer mt-auto">
+    <!-- Animated Wave -->
+    <div class="wave-container">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(27, 94, 32, 0.7)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(27, 94, 32, 0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(27, 94, 32, 0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#1B5E20" />
+            </g>
+        </svg>
+    </div>
+
+    <div class="footer-content py-5">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+
+                <!-- Logo & Brand (Left) -->
+                <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                    <a class="footer-brand d-inline-flex align-items-center gap-3" routerLink="/home">
+                        <div class="logo-icon-footer">
+                            <i class="bi bi-recycle"></i>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span class="brand-text-footer">Arte que Recicla</span>
+                            <small class="slogan-text">Creando un futuro sostenible</small>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Links (Center) -->
+                <div class="col-lg-4 col-md-12">
+                    <ul class="nav justify-content-center flex-column flex-sm-row gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link-footer" routerLink="/about">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-footer" routerLink="/galeria">Galería</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-footer" routerLink="/tutoriales">Tutoriales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-footer" routerLink="/consejos">Consejos</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Icons (Right) -->
+                <div class="col-lg-4 col-md-12 text-center text-lg-end">
+                    <div class="social-links d-inline-flex gap-4">
+                        <a href="https://instagram.com" target="_blank" class="social-btn instagram"
+                            aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                            <div class="social-blob"></div>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="social-btn github" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                            <div class="social-blob"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="row mt-5 pt-4 border-top border-light-subtle">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-white-50 small">&copy; 2025 Arte que Recicla. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

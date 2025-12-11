@@ -1,0 +1,52 @@
+<div class="user-layout">
+    <app-sidebar-usuario></app-sidebar-usuario>
+
+    <div class="main-content">
+        <header class="dashboard-header" *ngIf="identity">
+            <h1>Hola, {{ identity.nombre }} 👋</h1>
+            <p>Bienvenido a tu panel de usuario</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <a routerLink="/tutoriales" class="stat-card">
+                <div class="icon-box green">
+                    <i class="bi bi-book"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Tutoriales</h3>
+                    <p>Explora nuevos proyectos</p>
+                </div>
+            </a>
+
+            <a routerLink="/consejos" class="stat-card">
+                <div class="icon-box teal">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Consejos</h3>
+                    <p>Aprende tips de reciclaje</p>
+                </div>
+            </a>
+
+            <a routerLink="/galeria" class="stat-card">
+                <div class="icon-box yellow">
+                    <i class="bi bi-images"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Galería</h3>
+                    <p>Mira las creaciones</p>
+                </div>
+            </a>
+
+            <a routerLink="/documentos" class="stat-card">
+                <div class="icon-box purple">
+                    <i class="bi bi-file-earmark-text"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Documentos</h3>
+                    <p>Recursos útiles</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

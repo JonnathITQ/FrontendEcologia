@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+
+<div class="gallery-container">
+    <div class="gallery-header">
+        <h1 class="gallery-title">Galería de Arte</h1>
+        <p class="gallery-subtitle">Explora las creaciones de nuestra comunidad</p>
+        <div class="header-decoration"></div>
+    </div>
+
+    <div class="carousel-layout" *ngIf="galeria.length > 0">
+        <!-- Previous Button -->
+        <button class="nav-btn prev" (click)="prev()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+
+        <!-- Main Card -->
+        <div class="carousel-card">
+            <div class="carousel-track">
+                <div class="carousel-slide" *ngFor="let item of galeria; let i = index"
+                    [class.active]="i === activeIndex">
+                    <div class="slide-content">
+                        <div class="slide-image-wrapper">
+                            <img [src]="getImagenUrl(item.imagen)" [alt]="item.nombreObra">
+                        </div>
+                        <div class="slide-info">
+                            <h2>{{ item.nombreObra }}</h2>
+                            <p class="artist">Por: {{ item.artista }}</p>
+                            <p class="description">{{ item.descripcion }}</p>
+                            <button class="btn-details" (click)="verDetalles(item._id)">
+                                Ver Detalles
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="margin-left: 8px;">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-indicators">
+                <span *ngFor="let item of galeria; let i = index" class="indicator" [class.active]="i === activeIndex"
+                    (click)="setActive(i)"></span>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <button class="nav-btn next" (click)="next()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="no-items" *ngIf="galeria.length === 0">
+        <p>No hay obras en la galería aún.</p>
+    </div>
+</div>
+
+<app-footer></app-footer>

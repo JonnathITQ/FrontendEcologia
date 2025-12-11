@@ -1,0 +1,100 @@
+<div class="user-layout">
+    <app-sidebar-usuario></app-sidebar-usuario>
+
+    <div class="main-content">
+        <div class="profile-container">
+            <div class="section-header">
+                <h2>Mi Cuenta</h2>
+            </div>
+
+            <div class="profile-card">
+                <div class="banner"></div>
+
+                <div class="profile-header-content">
+                    <div class="avatar-wrapper">
+                        <label for="file-upload" class="avatar" [class.editable]="isEditing">
+                            <img *ngIf="identity?.imagen"
+                                [src]="'http://localhost:3600/getImagenUsuario/' + identity!.imagen + '?t=' + timestamp"
+                                alt="Avatar">
+                            <span *ngIf="!identity?.imagen">{{ identity?.nombre | slice:0:1 }}</span>
+                            <div class="avatar-overlay" *ngIf="isEditing">Cambiar</div>
+                        </label>
+                        <input type="file" id="file-upload" (change)="fileChangeEvent($event)" style="display: none;"
+                            [disabled]="!isEditing">
+                        <div class="status-indicator"></div>
+                    </div>
+
+                    <div class="user-info">
+                        <h3>
+                            {{ identity?.nombre }}
+                            <span class="user-tag">#{{ identity?._id | slice:-4 }}</span>
+                        </h3>
+                    </div>
+
+                    <button class="btn-edit-profile" (click)="toggleEdit()" *ngIf="!isEditing">
+                        Editar Perfil
+                    </button>
+                    <div class="edit-actions" *ngIf="isEditing">
+                        <button class="btn-cancel" (click)="toggleEdit()">Cancelar</button>
+                        <button class="btn-save" (click)="openConfirmModal()">Guardar</button>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div *ngIf="message_success" class="alert alert-success">
+                        {{ message_success }}
+                    </div>
+
+                    <!-- Name Field -->
+                    <div class="info-row">
+                        <div class="info-content">
+                            <div class="info-label">Nombre de Usuario</div>
+                            <div class="info-value" *ngIf="!isEditing">{{ user.nombre }} {{ user.apellido }}</div>
+                            <div *ngIf="isEditing">
+                                <input type="text" [(ngModel)]="user.nombre" placeholder="Nombre" class="discord-input"
+                                    style="margin-bottom: 5px;">
+                                <input type="text" [(ngModel)]="user.apellido" placeholder="Apellido"
+                                    class="discord-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="info-row">
+                        <div class="info-content">
+                            <div class="info-label">Correo Electrónico</div>
+                            <div class="info-value" *ngIf="!isEditing">{{ user.correo }}</div>
+                            <input *ngIf="isEditing" type="email" [(ngModel)]="user.correo" class="discord-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Password Confirmation Modal -->
+<div class="modal-overlay" *ngIf="showModal">
+    <div class="discord-modal">
+        <div class="modal-header">
+            <h3>Confirmar Cambios</h3>
+        </div>
+        <div class="modal-body">
+            <p>Por favor, ingresa tu contraseña para confirmar los cambios en tu cuenta.</p>
+
+            <div *ngIf="message_error" class="alert alert-danger">
+                {{ message_error }}
+            </div>
+
+            <div class="form-group">
+                <label
+                    style="color: var(--text-muted); font-size: 12px; font-weight: 700; text-transform: uppercase;">Contraseña</label>
+                <input type="password" [(ngModel)]="passwordConfirm" class="discord-input">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" (click)="closeModal()">Cancelar</button>
+            <button class="btn-save" (click)="updateProfile()">Listo</button>
+        </div>
+    </div>
+</div>
