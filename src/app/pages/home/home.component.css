@@ -89,6 +89,28 @@
     transform: translateY(-5px);
 }
 
+.btn-share {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    background: white;
+    color: var(--forest-green);
+    border: 2px solid var(--forest-green);
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-share:hover {
+    background: var(--forest-green);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 94, 32, 0.2);
+}
+
 .hero-decoration {
     position: absolute;
     top: 0;

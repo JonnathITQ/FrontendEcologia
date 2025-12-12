@@ -1,4 +1,14 @@
-<app-sidebar-admin></app-sidebar-admin>
-<div class="main-content">
-    <h1>Estadísticas</h1>
+<div class="admin-layout">
+    <app-sidebar-admin></app-sidebar-admin>
+
+    <div class="admin-content">
+        <div class="header-section">
+            <h1>Estadísticas</h1>
+            <p>Visualiza el impacto de tu plataforma</p>
+        </div>
+
+        <div class="chart-container">
+            <canvas #chartCanvas></canvas>
+        </div>
+    </div>
 </div>

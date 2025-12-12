@@ -9,7 +9,9 @@
                 nuestra comunidad de artistas conscientes.</p>
             <div class="hero-buttons animate-fade-up delay-2">
                 <a routerLink="/galeria" class="btn-primary">Explorar Galería</a>
-                <a routerLink="/tutoriales" class="btn-secondary">Aprender Más</a>
+                <button (click)="copyLink()" class="btn-share">
+                    <i class="fas fa-share-alt"></i> Compartir
+                </button>
             </div>
         </div>
         <div class="hero-decoration">
