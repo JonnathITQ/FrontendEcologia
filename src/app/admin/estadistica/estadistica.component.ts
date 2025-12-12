@@ -14,6 +14,8 @@ export class EstadisticaComponent implements OnInit, AfterViewInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
   chart: any;
 
+  totalShares: number = 0;
+
   constructor(private _visitaService: VisitaService) { }
 
   ngOnInit(): void {
@@ -36,6 +38,9 @@ export class EstadisticaComponent implements OnInit, AfterViewInit {
   }
 
   procesarDatos(visitas: any[]) {
+    // Calcular total
+    this.totalShares = visitas.length;
+
     // Agrupar por día
     const visitasPorDia: { [key: string]: number } = {};
 
