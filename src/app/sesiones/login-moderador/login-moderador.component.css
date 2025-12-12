@@ -234,3 +234,30 @@
         transform: translateY(0);
     }
 }
+
+/* Back Button */
+.btn-back {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--forest-green);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-back:hover {
+    transform: translateX(-5px);
+    background: white;
+    color: var(--eco-green);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}

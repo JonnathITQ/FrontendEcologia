@@ -6,7 +6,7 @@ import { SidebarAdminComponent } from "./sidebar-admin/sidebar-admin.component";
 import { PerfilAdminComponent } from "./perfil-admin/perfil-admin.component";
 
 export const AdminRoutes: Routes = [
-    { path: '', component: InicioAdminComponent },
+    { path: 'admin', component: InicioAdminComponent },
     { path: 'estadistica', component: EstadisticaComponent },
     { path: 'crudModeradores', component: ListaModeradoresComponent },
     { path: 'sidebarAdmin', component: SidebarAdminComponent },

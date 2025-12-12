@@ -1,0 +1,221 @@
+:host {
+    --eco-green: #00E676;
+    --forest-green: #1B5E20;
+    --text-main: #1a1a1a;
+    --sidebar-bg: #ffffff;
+    --hover-bg: #f0f9f4;
+    --staff-accent: #00E676;
+    /* Changed to Eco Green */
+}
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.sidebar.closed {
+    width: 80px;
+    padding: 1.5rem 0.5rem;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 1rem;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: var(--staff-accent);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Header */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    min-height: 81px;
+}
+
+.sidebar.closed .sidebar-header {
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--eco-green);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    white-space: nowrap;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--hover-bg);
+    border-radius: 16px;
+    min-height: 77px;
+}
+
+.sidebar.closed .user-info {
+    justify-content: center;
+    padding: 0.5rem;
+    background: transparent;
+}
+
+.avatar-placeholder {
+    width: 45px;
+    height: 45px;
+    background: var(--staff-accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.user-role {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Navigation */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: #666;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.sidebar.closed .nav-item {
+    justify-content: center;
+    padding: 1rem 0.5rem;
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+}
+
+.nav-item:hover {
+    background: var(--hover-bg);
+    color: var(--staff-accent);
+    transform: translateX(5px);
+}
+
+.sidebar.closed .nav-item:hover {
+    transform: none;
+    background: var(--hover-bg);
+}
+
+.nav-item.active {
+    background: var(--forest-green);
+    color: white;
+    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+}
+
+/* Footer */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.btn-logout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border: none;
+    background: transparent;
+    color: #ef5350;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.sidebar.closed .btn-logout {
+    justify-content: center;
+    padding: 0.8rem 0.5rem;
+}
+
+.btn-logout:hover {
+    background: #ffebee;
+}

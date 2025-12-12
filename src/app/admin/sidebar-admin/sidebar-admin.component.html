@@ -1,1 +1,51 @@
-<p>sidebar-admin works!</p>
+<div class="sidebar" [class.closed]="!isOpen">
+    <button class="toggle-btn" (click)="toggleSidebar()">
+        <i class="bi" [class.bi-chevron-left]="isOpen" [class.bi-chevron-right]="!isOpen"></i>
+    </button>
+
+    <div class="sidebar-header">
+        <div class="logo-icon">
+            <i class="bi bi-shield-lock-fill"></i>
+        </div>
+        <h3 *ngIf="isOpen">Panel Admin</h3>
+    </div>
+
+    <div class="user-info" *ngIf="identity">
+        <div class="avatar-placeholder">
+            <img *ngIf="identity.imagen" [src]="url + 'verImagenAdmin/' + identity.imagen" alt="Avatar"
+                class="avatar-img">
+            <span *ngIf="!identity.imagen">{{ identity.nombre.charAt(0) }}</span>
+        </div>
+        <div class="user-details" *ngIf="isOpen">
+            <span class="user-name">{{ identity.nombre }}</span>
+            <span class="user-role">Administrador</span>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a routerLink="/admi/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            class="nav-item">
+            <i class="bi bi-speedometer2"></i>
+            <span *ngIf="isOpen">Inicio</span>
+        </a>
+        <a routerLink="/admi/crudModeradores" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-people-fill"></i>
+            <span *ngIf="isOpen">Moderadores</span>
+        </a>
+        <a routerLink="/admi/estadistica" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-bar-chart-line"></i>
+            <span *ngIf="isOpen">Estadística</span>
+        </a>
+        <a routerLink="/admi/perfilAdmin" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-person-gear"></i>
+            <span *ngIf="isOpen">Mi Perfil</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <button (click)="logout()" class="btn-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span *ngIf="isOpen">Cerrar Sesión</span>
+        </button>
+    </div>
+</div>

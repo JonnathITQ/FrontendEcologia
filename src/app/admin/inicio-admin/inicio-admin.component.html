@@ -1,1 +1,45 @@
-<p>inicio-admin works!</p>
+<app-sidebar-admin></app-sidebar-admin>
+<div class="main-content">
+    <div class="welcome-section">
+        <h1>Hola, <span class="highlight">{{ identity?.nombre }}</span></h1>
+        <p>Bienvenido a tu panel de administración. ¿Qué deseas hacer hoy?</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- Moderadores Card -->
+        <div class="card">
+            <div class="card-icon">
+                <i class="bi bi-people-fill"></i>
+            </div>
+            <div class="card-content">
+                <h3>Moderadores</h3>
+                <p>Gestiona el equipo de moderación, agrega nuevos miembros o edita sus permisos.</p>
+                <a routerLink="/admi/crudModeradores" class="btn-action">Gestionar</a>
+            </div>
+        </div>
+
+        <!-- Estadísticas Card -->
+        <div class="card">
+            <div class="card-icon">
+                <i class="bi bi-bar-chart-line-fill"></i>
+            </div>
+            <div class="card-content">
+                <h3>Estadísticas</h3>
+                <p>Visualiza el rendimiento de la plataforma, visitas y métricas clave.</p>
+                <a routerLink="/admi/estadistica" class="btn-action">Ver Reportes</a>
+            </div>
+        </div>
+
+        <!-- Perfil Card -->
+        <div class="card">
+            <div class="card-icon">
+                <i class="bi bi-person-gear"></i>
+            </div>
+            <div class="card-content">
+                <h3>Mi Perfil</h3>
+                <p>Actualiza tu información personal, cambia tu contraseña o foto de perfil.</p>
+                <a routerLink="/admi/perfilAdmin" class="btn-action">Ver Perfil</a>
+            </div>
+        </div>
+    </div>
+</div>
