@@ -31,6 +31,5 @@ export class SidebarModeradorComponent {
 
   logout() {
     this._moderadorService.logout();
-    this._router.navigate(['/sesiones/login-moderador']);
   }
 }

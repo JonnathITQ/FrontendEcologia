@@ -8,6 +8,7 @@ export class Moderador {
         public contrasenia: string,
         public seguroMedico: boolean,
         public tipoSangre: string,
-        public imagen: string
+        public imagen: string,
+        public role?: string
     ) { }
 }

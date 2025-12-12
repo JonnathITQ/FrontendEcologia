@@ -31,6 +31,5 @@ export class SidebarAdminComponent {
 
   logout() {
     this._adminService.logout();
-    this._router.navigate(['/sesiones/loginAdministrador']);
   }
 }

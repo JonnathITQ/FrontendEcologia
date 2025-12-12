@@ -74,8 +74,21 @@
                     <div class="btn-blob"></div>
                 </button>
 
-                <button class="btn btn-ingresar w-100" routerLink="/usuario" *ngIf="identity">
+                <button class="btn btn-ingresar w-100" routerLink="/usuario"
+                    *ngIf="identity && identity.role === 'user'">
                     <span class="btn-text">Usuario</span>
+                    <div class="btn-blob"></div>
+                </button>
+
+                <button class="btn btn-ingresar w-100" routerLink="/admi/admin"
+                    *ngIf="identity && identity.role === 'admin'">
+                    <span class="btn-text">Administrador</span>
+                    <div class="btn-blob"></div>
+                </button>
+
+                <button class="btn btn-ingresar w-100" routerLink="/moderador"
+                    *ngIf="identity && identity.role === 'moderator'">
+                    <span class="btn-text">Moderador</span>
                     <div class="btn-blob"></div>
                 </button>
             </div>
@@ -88,8 +101,18 @@
                 <div class="btn-blob"></div>
             </button>
 
-            <button class="btn btn-ingresar" routerLink="/usuario" *ngIf="identity">
+            <button class="btn btn-ingresar" routerLink="/usuario" *ngIf="identity && identity.role === 'user'">
                 <span class="btn-text">Usuario</span>
+                <div class="btn-blob"></div>
+            </button>
+
+            <button class="btn btn-ingresar" routerLink="/admi/admin" *ngIf="identity && identity.role === 'admin'">
+                <span class="btn-text">Administrador</span>
+                <div class="btn-blob"></div>
+            </button>
+
+            <button class="btn btn-ingresar" routerLink="/moderador" *ngIf="identity && identity.role === 'moderator'">
+                <span class="btn-text">Moderador</span>
                 <div class="btn-blob"></div>
             </button>
         </div>

@@ -9,6 +9,7 @@ export class Admin {
         public seguroMedico: boolean,
         public tipoSangre: string,
         public sucursal: string,
-        public imagen: string
+        public imagen: string,
+        public role?: string
     ) { }
 }

@@ -7,4 +7,5 @@ export interface Usuario {
     contrasenia?: string;
     imagen?: string;
     telefono?: string;
+    role?: string;
 }

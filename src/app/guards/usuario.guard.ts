@@ -13,10 +13,12 @@ export class UsuarioGuard implements CanActivate {
     ) { }
 
     canActivate(): boolean {
-        if (!this._usuarioService.loggedIn()) {
+        const identity = this._usuarioService.getIdentity();
+        if (this._usuarioService.loggedIn() && identity && identity.role === 'user') {
+            return true;
+        } else {
             this._router.navigate(['/sesiones/loginUsuario']);
             return false;
         }
-        return true;
     }
 }
