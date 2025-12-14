@@ -35,6 +35,8 @@ export class ListaTutorialesComponent {
       response => {
         if (response.tutoriales) {
           this.tutoriales = response.tutoriales;
+          console.log('Tutoriales loaded:', this.tutoriales);
+          this.tutoriales.forEach(t => console.log('Video URL:', this.url + 'verVideoTutorial/' + t.video));
         }
       },
       error => {

@@ -144,3 +144,25 @@ a.stat-card {
         transform: translateY(0);
     }
 }
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 3rem;
+        margin-left: 0;
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat-card {
+        padding: 1.2rem;
+    }
+}

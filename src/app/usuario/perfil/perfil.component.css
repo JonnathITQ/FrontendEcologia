@@ -354,3 +354,61 @@
         opacity: 1;
     }
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-top: 3rem;
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .profile-header-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px 20px;
+        text-align: center;
+    }
+
+    .avatar-wrapper {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 1rem;
+        margin-top: -60px;
+        /* Pull it up into the banner area slightly or just keep it relative */
+        margin-top: -75px;
+        /* Adjust to overlap banner */
+    }
+
+    .user-info {
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    .user-info h3 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-edit-profile {
+        width: 100%;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .discord-modal {
+        width: 90%;
+        margin: 0 1rem;
+    }
+
+    .edit-actions {
+        justify-content: center;
+        width: 100%;
+    }
+}

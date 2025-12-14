@@ -313,5 +313,31 @@
 @media (max-width: 768px) {
     .main-content {
         margin-left: 80px;
+        padding: 1rem;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .btn-add {
+        justify-content: center;
+    }
+
+    .tutorials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .custom-modal {
+        width: 90%;
+        margin: 0 1rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .tutorials-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
 }

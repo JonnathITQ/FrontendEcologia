@@ -337,6 +337,14 @@
 }
 
 @media (max-width: 768px) {
+
+    .independent-gallery-container {
+        max-width: 935px;
+        margin: 8rem auto;
+        padding: 0 1rem;
+        min-height: calc(100vh - 200px);
+    }
+
     .artwork-content {
         flex-direction: column;
         min-height: auto;

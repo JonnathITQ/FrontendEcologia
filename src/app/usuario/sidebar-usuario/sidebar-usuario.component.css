@@ -218,3 +218,54 @@
 .btn-logout:hover {
     background: #ffebee;
 }
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        transition: transform 0.3s ease, width 0.3s ease;
+    }
+
+    /* State: Open (Default) */
+    .sidebar {
+        width: 280px;
+        transform: translateX(0);
+    }
+
+    /* State: Closed */
+    .sidebar.closed {
+        width: 0;
+        padding: 0;
+        transform: translateX(0);
+        overflow: visible;
+    }
+
+    /* Hide content when closed */
+    .sidebar.closed .sidebar-header,
+    .sidebar.closed .user-info,
+    .sidebar.closed .sidebar-nav,
+    .sidebar.closed .sidebar-footer {
+        opacity: 0;
+        pointer-events: none;
+        display: none;
+    }
+
+    /* Toggle Button */
+    .toggle-btn {
+        right: -45px;
+        width: 35px;
+        height: 35px;
+        top: 20px;
+        background: var(--eco-green);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ensure button is visible when sidebar is closed */
+    .sidebar.closed .toggle-btn {
+        right: -45px;
+        opacity: 1;
+    }
+}

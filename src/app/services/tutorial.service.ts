@@ -42,6 +42,6 @@ export class TutorialService {
     }
 
     getUrlVideo(video: string): string {
-        return this.url + 'verVideoTutorial/' + video;
+        return this.url + 'videos/' + video;
     }
 }

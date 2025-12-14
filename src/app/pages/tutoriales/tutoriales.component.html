@@ -1,4 +1,30 @@
 <app-navbar></app-navbar>
-<br><br>
-<br><br>
+
+<div class="tutorials-container">
+    <div class="page-header">
+        <h1>Tutoriales</h1>
+        <p>Aprende con nuestros videos educativos</p>
+    </div>
+
+    <div class="tutorials-grid">
+        <div class="tutorial-card" *ngFor="let item of tutoriales">
+            <div class="video-wrapper">
+                <video *ngIf="item.video" [src]="url + 'videos/' + item.video" controls></video>
+                <div *ngIf="!item.video" class="no-video">
+                    <i class="bi bi-camera-video"></i>
+                    <p>Video no disponible</p>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>{{ item.nombre }}</h3>
+                <p>{{ item.descripcion }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="tutoriales.length === 0" class="no-items">
+        <p>No hay tutoriales disponibles por el momento.</p>
+    </div>
+</div>
+
 <app-footer></app-footer>

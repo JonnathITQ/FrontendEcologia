@@ -4,12 +4,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/Usuario';
 import { tap } from 'rxjs/operators';
+import { urlBase } from './urlBase';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UsuarioService {
-    public url = 'http://localhost:3600';
+    public url = urlBase.url;
     public identity: Usuario | null = null;
     public token: any;
 
