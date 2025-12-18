@@ -30,7 +30,7 @@ export class UsuarioService {
             user.gettoken = true;
         }
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.post(this.url + '/loginUsuario', json, { headers: headers }).pipe(
+        return this._http.post(this.url + 'loginUsuario', json, { headers: headers }).pipe(
             tap((response: any) => {
                 if (response.usuario) {
                     this.identity = response.usuario;
@@ -101,7 +101,7 @@ export class UsuarioService {
 
     getUserIdByEmail(email: string): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.post(this.url + '/getUserIdByEmail', { correo: email }, { headers: headers });
+        return this._http.post(this.url + 'getUserIdByEmail', { correo: email }, { headers: headers });
     }
 
     actualizarPassword(id: string, password: string): Observable<any> {
