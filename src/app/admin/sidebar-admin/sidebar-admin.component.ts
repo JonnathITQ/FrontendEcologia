@@ -23,15 +23,6 @@ export class SidebarAdminComponent {
   ) {
     this.identity = this._adminService.getIdentity();
     this.token = this._adminService.getToken();
-    this.checkScreenSize();
-  }
-
-  checkScreenSize() {
-    if (window.innerWidth <= 768) {
-      this.isOpen = false;
-    } else {
-      this.isOpen = true;
-    }
   }
 
   toggleSidebar() {
