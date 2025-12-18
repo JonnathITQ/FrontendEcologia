@@ -23,10 +23,12 @@ export class PerfilComponent {
   public showModal: boolean = false;
   public filesToUpload: Array<File> | undefined;
   public timestamp: number = new Date().getTime();
+  public url: string;
 
   constructor(
     private _usuarioService: UsuarioService
   ) {
+    this.url = this._usuarioService.url;
     this.identity = this._usuarioService.getIdentity();
     this.token = this._usuarioService.getToken();
     if (this.identity) {
