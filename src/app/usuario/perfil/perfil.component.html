@@ -14,7 +14,7 @@
                     <div class="avatar-wrapper">
                         <label for="file-upload" class="avatar" [class.editable]="isEditing">
                             <img *ngIf="identity?.imagen"
-                                [src]="url + 'getImagenUsuario/' + identity!.imagen + '?t=' + timestamp" alt="Avatar">
+                                [src]="url + 'verImagenUsuario/' + identity!.imagen + '?t=' + timestamp" alt="Avatar">
                             <span *ngIf="!identity?.imagen">{{ identity?.nombre | slice:0:1 }}</span>
                             <div class="avatar-overlay" *ngIf="isEditing">Cambiar</div>
                         </label>

@@ -12,7 +12,7 @@
 
     <div class="user-info" *ngIf="identity">
         <div class="avatar-placeholder">
-            <img *ngIf="identity.imagen" [src]="url + 'getImagenUsuario/' + identity.imagen" alt="Avatar"
+            <img *ngIf="identity.imagen" [src]="url + 'verImagenUsuario/' + identity.imagen" alt="Avatar"
                 class="avatar-img">
             <span *ngIf="!identity.imagen">{{ identity.nombre.charAt(0) }}</span>
         </div>
