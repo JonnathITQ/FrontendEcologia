@@ -75,28 +75,28 @@ export class UsuarioService {
 
     update_usuario(id: any, data: any): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.getToken());
-        return this._http.put(this.url + '/updateUsuario/' + id, data, { headers: headers });
+        return this._http.put(this.url + 'updateUsuario/' + id, data, { headers: headers });
     }
 
     get_usuario(id: any): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.getToken());
-        return this._http.get(this.url + '/usuario/' + id, { headers: headers });
+        return this._http.get(this.url + 'usuario/' + id, { headers: headers });
     }
 
     registrar(user: any): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.post(this.url + '/agregarUsuario', user, { headers: headers });
+        return this._http.post(this.url + 'agregarUsuario', user, { headers: headers });
     }
 
     subirImagen(id: any, file: File): Observable<any> {
         const formData = new FormData();
         formData.append('imagen', file);
-        return this._http.post(this.url + '/subirImagenUsuario/' + id, formData);
+        return this._http.post(this.url + 'subirImagenUsuario/' + id, formData);
     }
 
     verificarEmail(email: string): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.post(this.url + '/loginUsuario', { correo: email, contrasenia: 'dummy' }, { headers: headers });
+        return this._http.post(this.url + 'loginUsuario', { correo: email, contrasenia: 'dummy' }, { headers: headers });
     }
 
     getUserIdByEmail(email: string): Observable<any> {
@@ -106,15 +106,15 @@ export class UsuarioService {
 
     actualizarPassword(id: string, password: string): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.put(this.url + '/resetPassword/' + id, { contrasenia: password }, { headers: headers });
+        return this._http.put(this.url + 'resetPassword/' + id, { contrasenia: password }, { headers: headers });
     }
     getUsuarios(): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.getToken());
-        return this._http.get(this.url + '/listaUsuario', { headers: headers });
+        return this._http.get(this.url + 'listaUsuario', { headers: headers });
     }
 
     deleteUsuario(id: string): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.getToken());
-        return this._http.delete(this.url + '/borrarUsuario/' + id, { headers: headers });
+        return this._http.delete(this.url + 'borrarUsuario/' + id, { headers: headers });
     }
 }
