@@ -220,3 +220,55 @@
 .btn-logout:hover {
     background: #ffebee;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 280px;
+        transform: translateX(0);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.closed {
+        width: 280px;
+        transform: translateX(-100%);
+        padding: 1.5rem;
+        /* Reset padding */
+    }
+
+    /* Adjust toggle button for mobile */
+    .toggle-btn {
+        right: -40px;
+        /* Move button outside when closed */
+        top: 1rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 0 50% 50% 0;
+        /* Rounded on right side */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ensure content is not centered when "closed" (hidden) */
+    .sidebar.closed .sidebar-header,
+    .sidebar.closed .user-info,
+    .sidebar.closed .nav-item,
+    .sidebar.closed .btn-logout {
+        justify-content: flex-start;
+        /* Keep alignment */
+        padding: inherit;
+        /* Reset padding */
+    }
+
+    .sidebar.closed .nav-item {
+        padding: 1rem;
+    }
+
+    .sidebar.closed .user-info {
+        padding: 1rem;
+        background: var(--hover-bg);
+    }
+
+    .sidebar.closed .btn-logout {
+        padding: 0.8rem 1rem;
+    }
+}
